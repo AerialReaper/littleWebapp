@@ -9,6 +9,9 @@ import { routing, appRoutingProviders } from './app.routing';
 // Ajax
 import { HttpClientModule } from '@angular/common/http';
 
+// Forms
+import { FormsModule } from "@angular/forms";
+
 // Mis componentes
 import { AppComponent } from './app.component';
 import { HomeComponent } from "./components/home.component";
@@ -28,7 +31,8 @@ import { ProductoAddComponent } from "./components/producto-add.component";
     BrowserModule,
     AppRoutingModule,
     routing,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     appRoutingProviders

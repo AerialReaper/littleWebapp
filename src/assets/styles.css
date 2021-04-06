@@ -79,3 +79,7 @@
     /* background: #E03137 !important; */
     border-bottom: 4px solid yellow !important;
 }
+
+#formProducto label{
+    margin-top: 15px;
+}
