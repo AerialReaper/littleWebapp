@@ -21,4 +21,14 @@ export class ProductoService {
        return this._http.get(this.url+'productos')
                         .pipe(map(res => res));
    }
+
+   addProducto(producto: Producto){
+       let json = JSON.stringify(producto);
+       console.log(json);
+       let params = 'json='+json;
+       let headers = {'Content-Type':'application/x-www-form-urlencoded'};
+
+       return this._http.post(this.url+'productos', params, {headers: headers})
+                        .pipe(map(res => res));
+   }
 }
