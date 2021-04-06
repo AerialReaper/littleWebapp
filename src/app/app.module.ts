@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 
+// Rutas
+import { routing, appRoutingProviders } from './app.routing';
+
 // Mis componentes
 import { AppComponent } from './app.component';
 import { HomeComponent } from "./components/home.component";
@@ -14,9 +17,12 @@ import { HomeComponent } from "./components/home.component";
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    routing
   ],
-  providers: [],
+  providers: [
+    appRoutingProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
