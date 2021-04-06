@@ -14,12 +14,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from "./components/home.component";
 import { ProductosListComponent } from "./components/productos-list.component";
 import { ErrorComponent } from "./components/error.component";
+import { ProductoAddComponent } from "./components/producto-add.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ProductosListComponent,
+    ProductoAddComponent,
     ErrorComponent
   ],
   imports: [
