@@ -17,8 +17,8 @@ export class ProductoService {
     }
 
    getProductos(){
-       return "Texto desde el servicio";
-    //    return this._http.get(this.url)
-    //                     .pipe(map(res => res));
+    //    return "Texto desde el servicio";
+       return this._http.get(this.url+'productos')
+                        .pipe(map(res => res));
    }
 }
