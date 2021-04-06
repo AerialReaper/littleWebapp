@@ -1,2 +1,15 @@
 <h3>{{titulo}}</h3>
 <hr>
+
+<div *ngIf="productos; else Loading">
+    <ul>
+        <li *ngFor="let producto of productos">
+            <b>{{producto.nombre}}</b>
+            <p>{{producto.precio}}€</p>
+        </li>
+    </ul>
+</div>
+
+<ng-template #Loading>
+    Cargando productos...
+</ng-template>
