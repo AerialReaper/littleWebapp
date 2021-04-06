@@ -6,6 +6,9 @@ import { AppRoutingModule } from './app-routing.module';
 // Rutas
 import { routing, appRoutingProviders } from './app.routing';
 
+// Ajax
+import { HttpClientModule } from '@angular/common/http';
+
 // Mis componentes
 import { AppComponent } from './app.component';
 import { HomeComponent } from "./components/home.component";
@@ -22,7 +25,8 @@ import { ErrorComponent } from "./components/error.component";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    routing
+    routing,
+    HttpClientModule
   ],
   providers: [
     appRoutingProviders
