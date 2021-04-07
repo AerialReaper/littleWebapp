@@ -22,6 +22,11 @@ export class ProductoService {
                         .pipe(map(res => res));
    }
 
+   getProducto(id){
+       return this._http.get(this.url+'producto/'+id)
+                        .pipe(map(res => res));
+   }
+
    addProducto(producto: Producto){
        let json = JSON.stringify(producto);
        console.log(json);

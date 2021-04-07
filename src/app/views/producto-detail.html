@@ -1,1 +1,17 @@
-<h1>Detalle del producto</h1>
+<ng-template #noProducto>
+    <div>
+        <p>Cargando producto...</p>
+    </div>
+</ng-template>
+
+<div *ngIf="producto; else noProducto" class="row">
+    <div class="col-lg-3" *ngIf="producto.imagen">
+        <img src="http://localhost/cursoAngular4_BackEnd/uploads/{{producto.imagen}}" alt="" class="producto_imagen">
+    </div>
+    <div class="col-lg-9">
+        <h3>{{producto.nombre}}</h3>
+        <p><b>{{producto.precio}}€</b></p>
+        <p>{{producto.descripcion}}</p>
+    </div>
+    
+</div>

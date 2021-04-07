@@ -21,6 +21,27 @@ export class ProductoDetailComponent {
     ) {}
 
     ngOnInit(){
-        console.log('producto-detail.Component.ts cargado...')
+        console.log('producto-detail.Component.ts cargado...');
+        this.getProducto();
+    }
+
+    getProducto(){
+        this._route.params.forEach((params: Params) =>{
+            let id = params['id'];
+            // alert(id);
+
+            this._productoService.getProducto(id).subscribe(
+                result =>{
+                    if (result['code'] == 200) {
+                        this.producto = result['data'];
+                    }else{
+                        this._router.navigate(['/productos']);
+                    }
+                },
+                error =>{
+                    console.log(error);
+                }
+            );
+        });
     }
 }
