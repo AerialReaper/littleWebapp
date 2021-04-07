@@ -83,3 +83,26 @@
 #formProducto label{
     margin-top: 15px;
 }
+
+/* .imagen_container{
+    width: 100%;
+    overflow: hidden;
+} */
+
+.producto_imagen{
+    /* width: 100%; */
+    height: 200px;
+    margin: 0px auto;
+    display: block;
+    max-width: 100%; /* Comentar para imagen_container*/
+}
+
+.img_relleno{
+    background: #CCC;
+    width: 100%;
+    height: 200px;
+}
+
+.separado{
+    margin-right: 10px;
+}
