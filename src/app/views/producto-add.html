@@ -23,7 +23,7 @@
     <label>
         Imagen
     </label>
-    <input type="file"  class="form-control"/>
+    <input type="file"  class="form-control" (change)="fileChangeEvent($event)"/>
     <br>
     <input type="submit" value="{{titulo}}" [disabled]="!formProducto.form.valid" class="btn btn-success">
 </form>
