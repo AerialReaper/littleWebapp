@@ -18,6 +18,7 @@ import { HomeComponent } from "./components/home.component";
 import { ProductosListComponent } from "./components/productos-list.component";
 import { ErrorComponent } from "./components/error.component";
 import { ProductoAddComponent } from "./components/producto-add.component";
+import { ProductoDetailComponent } from "./components/producto-detail.component";
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ProductoAddComponent } from "./components/producto-add.component";
     HomeComponent,
     ProductosListComponent,
     ProductoAddComponent,
+    ProductoDetailComponent,
     ErrorComponent
   ],
   imports: [
