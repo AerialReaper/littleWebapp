@@ -18,6 +18,7 @@ export class ProductoAddComponent{
 
     public filesToUpload;
     public resultUpload;
+    public is_edit;
 
     constructor(
         private _productoService: ProductoService,
@@ -27,6 +28,7 @@ export class ProductoAddComponent{
         this.titulo = 'Crear un nuevo producto';
         this.producto = new Producto( 0, '', '', 0, '');
         this.filesToUpload = <Array<File>>[];
+        this.is_edit = false;
     }
     
     ngOnInit(){
@@ -36,7 +38,7 @@ export class ProductoAddComponent{
     onSubmit(){
         console.log(this.producto);
 
-        if (this.filesToUpload.length >= 1) {
+        if (this.filesToUpload && this.filesToUpload.length >= 1) {
             this._productoService.makeFileRequest(GLOBAL.url+'upload-file', [], this.filesToUpload).then((result) => {
                 console.log(result);
                 this.producto.imagen = result['filename'];

@@ -37,6 +37,14 @@ export class ProductoService {
                         .pipe(map(res => res));
    }
 
+   editProducto(id, producto: Producto){
+        let json = JSON.stringify(producto);
+        let params = 'json='+json;
+        let headers = {'Content-Type':'application/x-www-form-urlencoded'};
+        return this._http.post(this.url+'update-producto/'+id, params, {headers: headers})
+                        .pipe(map(res => res));
+   }
+
 
    makeFileRequest(url: string, paramns: Array<string>, files: Array<File>){
        return new Promise((resolve, reject) =>{
