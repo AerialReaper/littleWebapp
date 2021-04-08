@@ -45,6 +45,12 @@ export class ProductoService {
                         .pipe(map(res => res));
    }
 
+   deleteProducto(id){
+    //    console.log('id = '+id);
+        return this._http.get(this.url+'delete-producto/'+id)
+                        .pipe(map(res => res));
+   }
+
 
    makeFileRequest(url: string, paramns: Array<string>, files: Array<File>){
        return new Promise((resolve, reject) =>{
