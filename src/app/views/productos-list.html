@@ -14,11 +14,17 @@
                 <div class="caption">
                     <h3>{{producto.nombre}}</h3>
                     <p>{{producto.precio}}€</p>
-                    <p>
+                    <div class="botones" *ngIf="confirmado != producto.id; else seguro" style="margin: 5px;">
                         <a [routerLink]="['/producto',producto.id]" routerLinkActive="router-link-active"  class="btn btn-outline-primary separado">Ver</a>
                         <a [routerLink]="['/editar-producto', producto.id]" routerLinkActive="router-link-active"  class="btn btn-outline-warning separado">Editar</a>
-                        <a href="#" class="btn btn-outline-danger separado">Borrar</a>
-                    </p>
+                        <a (click) ="borrarConfirm(producto.id)"  class="btn btn-outline-danger separado">Borrar</a>
+                    </div>
+                    <ng-template #seguro>
+                        <div class="seguro" *ngIf="confirmado == producto.id">
+                            <a (click)="cancelarConfirm()" class="btn btn-md btn-secondary">No</a>
+                            <a (click)="onDeleteProducto(producto.id)" class="btn btn-md btn-danger" style="margin: 5px;">Eliminar</a>
+                        </div>
+                    </ng-template>
                 </div>
             </div>
         </div>

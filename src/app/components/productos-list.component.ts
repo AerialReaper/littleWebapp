@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { ProductoService } from "../services/producto.service";
 import { Producto } from "../models/producto";
+import { error } from "selenium-webdriver";
 
 
 @Component({
@@ -13,6 +14,8 @@ import { Producto } from "../models/producto";
 export class ProductosListComponent{
     public titulo:string;
     public productos: Producto[];
+    public confirmado;
+
     
     constructor(
         private _route: ActivatedRoute, 
@@ -20,11 +23,15 @@ export class ProductosListComponent{
         private _productoService: ProductoService
     ){
         this.titulo = 'Listado de productos';
+        this.confirmado = null;
     }
 
     ngOnInit(){
         console.log('productos-list.component.ts cargado');
-        
+        this.getProductos();
+    }
+
+    getProductos(){
         this._productoService.getProductos().subscribe(
             result =>{
                 if ( result['code']!=200 ) {
@@ -37,5 +44,30 @@ export class ProductosListComponent{
                 console.log(<any>error);
             }
         )
+    }
+
+    borrarConfirm(id){
+        this.confirmado = id;
+    }
+
+    cancelarConfirm(){
+        this.confirmado = null;
+    }
+
+    onDeleteProducto(id){
+        this._productoService.deleteProducto(id).subscribe(
+            result =>{
+                if ( result['code']==200 ) {
+                    this.getProductos();
+                }else{
+                    alert('Error al borrar producto :(');
+                    console.log(result)
+                }
+            },
+            error =>{
+                console.log(<any> error)
+            }
+        );
+
     }
 }
